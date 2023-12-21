@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class PatientRepository
 {
-    private string $tableName = "users";
+    private string $tableName = "patients";
 
     public function Insert(Patient $patient)
     {
