@@ -1,20 +1,20 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+use Illuminate\Support\Facades\DB;
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
+
+
+try {
+    DB::connection()->getPdo();
+    echo "Kết nối đến cơ sở dữ liệu thành công!";
+} catch (\Exception $e) {
+    die("Không thể kết nối đến cơ sở dữ liệu: " . $e->getMessage());
+}
+
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router ->post('/login', 'Patient/SignUpController@login');
+$router ->post('/signup', 'Patient/SignUpController@signup');
