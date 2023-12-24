@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controllers\Patient;
-
 use App\Dtos\Patient\SignUpRequest;
 use App\Models\Patient;
 use App\Models\Role;
@@ -28,7 +26,7 @@ class SignUpController extends Controller
         // TODO frontend here
     }
 
-    public function login(Request $request)
+    public function signup(Request $request)
     {
         $signUpReq = new SignUpRequest($request);
 
@@ -41,6 +39,10 @@ class SignUpController extends Controller
         return response()->json([
             "user" => $newUser,
             "patient" => $newPatient
-        ]);
+        ], Response::HTTP_CREATED);
     }
+
+
+
+
 }
