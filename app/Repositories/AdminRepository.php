@@ -12,7 +12,7 @@ class AdminRepository
     {
         DB::insert(
             "insert into $this->tableName (id, userId)",
-            [$admin->getId(), $admin->getUserId()]
+            [$admin->getId(), $admin->getId()]
         );
     }
 
@@ -21,7 +21,7 @@ class AdminRepository
         DB::table($this->tableName)
             ->where('id', $admin->getId())
             ->update([
-                'userId' => $admin->getUserId(),
+                'userId' => $admin->getId(),
             ]);
     }
 

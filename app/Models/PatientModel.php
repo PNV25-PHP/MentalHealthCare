@@ -4,19 +4,19 @@ namespace App\Models;
 
 class Patient extends BaseModel
 {
-    private string $userId;
+    private string $Id;
 
     /**
-     * @param string $userId
+     * @param string $Id
      */
-    public function __construct(string $userId)
+    public function __construct(string $Id)
     {
         parent::__construct();
-        $this->userId = $userId;
+        $this->Id = $Id;
     }
 
-    public function getUserId(): string
+    public function getId(): string
     {
-        return $this->userId;
+        return $this->Id;
     }
 }

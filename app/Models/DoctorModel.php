@@ -4,30 +4,30 @@ namespace App\Models;
 use App\Models\Role;
 class Doctor extends BaseModel
 {
-    private string $userId;
+    private string $Id;
     private string $specialization;
     private string $hospital;
     
     
     /**
-     * @param string $userId
+     * @param string $Id
      * @param string $specialization
      * @param string $hospital
      * @param Role $role
      */
-    public function __construct(string $userId, string $specialization,string $hospital)
+    public function __construct(string $Id, string $specialization,string $hospital)
     {
         parent::__construct();
-        $this->userId = $userId;
+        $this->Id = $Id;
         $this->specialization = $specialization;
         $this->hospital = $hospital;
       
         
     }
 
-    public function getUserId(): string
+    public function getId(): string
     {
-        return $this->userId;
+        return $this->Id;
     }
 
     public function getSpecialization(): string

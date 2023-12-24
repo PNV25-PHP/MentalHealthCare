@@ -1,19 +1,18 @@
 <?php
-
+namespace App\Repositories;
 namespace App\Controllers\Doctor;
-
 use App\Dtos\Doctor\LoginRequest;
 use App\Models\Role;
-use App\Models\User;
 use App\Repositories\DoctorRepository;
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Laravel\Lumen\Routing\Controller;
 
+
+
 class LogInController extends Controller
 {
-   private DoctorRepository $DoctorRepository;
+   private DoctorRepository  $DoctorRepository;
 
    public function __construct()
    {

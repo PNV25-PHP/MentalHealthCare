@@ -14,7 +14,7 @@ class PatientRepository
     {
         DB::insert(
             "insert into $this->tableName (id, userId)",
-            [$patient->getId(), $patient->getUserId()]
+            [$patient->getId(), $patient->getId()]
         );
     }
 
@@ -23,7 +23,7 @@ class PatientRepository
         DB::table($this->tableName)
             ->where('id', $patient->getId())
             ->update([
-                'userId' => $patient->getUserId(),
+                'userId' => $patient->getId(),
             ]);
     }
 
