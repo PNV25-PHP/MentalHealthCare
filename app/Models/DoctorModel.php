@@ -5,21 +5,21 @@ use App\Models\Role;
 class Doctor extends BaseModel
 {
     private string $userId;
-    private string $specialty;
+    private string $specialization;
     private string $hospital;
     
     
     /**
      * @param string $userId
-     * @param string $specialty
+     * @param string $specialization
      * @param string $hospital
      * @param Role $role
      */
-    public function __construct(string $userId, string $specialty,string $hospital)
+    public function __construct(string $userId, string $specialization,string $hospital)
     {
         parent::__construct();
         $this->userId = $userId;
-        $this->specialty = $specialty;
+        $this->specialization = $specialization;
         $this->hospital = $hospital;
       
         
@@ -30,9 +30,9 @@ class Doctor extends BaseModel
         return $this->userId;
     }
 
-    public function getSpecialty(): string
+    public function getSpecialization(): string
     {
-        return $this->specialty;
+        return $this->specialization;
     }
 
     public function getHospital(): string
