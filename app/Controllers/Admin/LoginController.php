@@ -22,6 +22,7 @@ class LogInController extends Controller
     public function index()
     {
         // TODO: Giao diện đăng nhập ở đây (frontend)
+        
     }
 
     public function login(Request $request)
