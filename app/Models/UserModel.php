@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class User extends BaseModel
+class UserModel extends BaseModel
 {
     private Role $role;
     private string $email;

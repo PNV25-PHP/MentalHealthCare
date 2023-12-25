@@ -1,9 +1,13 @@
 <?php
+
 namespace App\Controllers\Patient;
+
 use App\Dtos\Patient\SignUpRequest;
 use App\Models\Patient;
+use App\Models\PatientModel;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\UserModel;
 use App\Repositories\PatientRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
@@ -30,8 +34,8 @@ class SignUpController extends Controller
     {
         $signUpReq = new SignUpRequest($request);
 
-        $newUser = new User(Role::Patient, $signUpReq->getEmail(), $signUpReq->getPassword());
-        $newPatient = new Patient($newUser->getId());
+        $newUser = new UserModel(Role::Patient, $signUpReq->getEmail(), $signUpReq->getPassword());
+        $newPatient = new PatientModel($newUser->getId());
 
         $this->userRepository->Insert($newUser);
         $this->patientRepository->Insert($newPatient);
@@ -41,8 +45,4 @@ class SignUpController extends Controller
             "patient" => $newPatient
         ], Response::HTTP_CREATED);
     }
-
-
-
-
 }

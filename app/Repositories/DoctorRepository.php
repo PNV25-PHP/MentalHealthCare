@@ -1,22 +1,23 @@
 <?php
 
 namespace App\Repositories;
-use App\Models\Doctor;
+
+use App\Models\DoctorModel;
 use Illuminate\Support\Facades\DB;
 
-class DoctorRepositories
+class DoctorRepository
 {
     private string $tableName = "doctors";
 
-    public function Insert(Doctor $doctor)
+    public function Insert(DoctorModel $doctor)
     {
         DB::insert(
             "insert into $this->tableName (id, userId)",
             [$doctor->getId(), $doctor->getId()]
         );
     }
-   
-    public function Update(Doctor $doctor)
+
+    public function Update(DoctorModel $doctor)
     {
         DB::table($this->tableName)
             ->where('id', $doctor->getId())
@@ -28,7 +29,6 @@ class DoctorRepositories
     public function Delete(string $id)
     {
         DB::table($this->tableName)->where('id', $id)->delete();
-
     }
 
     public function SelectOneById(string $id)
@@ -38,11 +38,16 @@ class DoctorRepositories
 
     public function SelectOneByIdWithRelationship(string $id, array $relationships)
     {
-      //  return Doctor::with($relationships)->find($id);
+        //  return Doctor::with($relationships)->find($id);
     }
 
     public function SelectManyWithRelationship(string $id, array $test)
     {
         // TODO: Implement SelectManyWithRelationship() method.
+    }
+
+    public function findByEmail($email)
+    {
+        return DB::table($this->tableName)->where('email', $email)->first();
     }
 }

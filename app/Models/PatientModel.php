@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Patient extends BaseModel
+class PatientModel extends BaseModel
 {
     private string $Id;
 

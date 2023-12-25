@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Admin extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class AdminModel extends BaseModel
 {
     private string $Id;
 

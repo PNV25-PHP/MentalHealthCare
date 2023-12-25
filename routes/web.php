@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -17,4 +18,4 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router ->post('/signup', 'Patient/SignUpController@signup');
+$router->post('/signup', 'Patient/SignUpController@signup');

@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\UserModel;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository
 {
     private string $tableName = "users";
 
-    public function Insert(User $user)
+    public function Insert(UserModel $user)
     {
         DB::insert(
             "insert into $this->tableName (id, role, email, password)",
@@ -17,7 +17,7 @@ class UserRepository
         );
     }
 
-    public function Update(User $model)
+    public function Update(UserModel $model)
     {
         // TODO: Implement Update() method.
     }
@@ -41,5 +41,4 @@ class UserRepository
     {
         // TODO: Implement SelectManyWithRelationship() method.
     }
-
 }

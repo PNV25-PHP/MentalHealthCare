@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use App\Models\Role;
-class Doctor extends BaseModel
+class DoctorModel extends BaseModel
 {
     private string $Id;
     private string $specialization;

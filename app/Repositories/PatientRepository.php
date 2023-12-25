@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Repositories;
-use App\Models\User;
-use App\Models\Patient;
+
+use App\Models\PatientModel;
 use Illuminate\Support\Facades\DB;
 
 
-class PatientRepository
+class PatientRepository 
 {
     private string $tableName = "patients";
 
-    public function Insert(Patient $patient)
+    public function Insert(PatientModel $patient)
     {
         DB::insert(
             "insert into $this->tableName (id, userId)",
@@ -18,7 +18,7 @@ class PatientRepository
         );
     }
 
-    public function Update(Patient $patient)
+    public function Update(PatientModel $patient)
     {
         DB::table($this->tableName)
             ->where('id', $patient->getId())
@@ -39,7 +39,7 @@ class PatientRepository
 
     public function SelectOneByIdWithRelationship(string $id, array $relationships)
     {
-       // return Patient::with($relationships)->find($id);
+        // return Patient::with($relationships)->find($id);
     }
 
     public function SelectManyWithRelationship(string $id, array $test)
@@ -47,6 +47,8 @@ class PatientRepository
         // TODO: Implement SelectManyWithRelationship() method.
     }
 
-
-    
+    public function findByEmail($email)
+    {
+        return DB::table($this->tableName)->where('email', $email)->first();
+    }
 }

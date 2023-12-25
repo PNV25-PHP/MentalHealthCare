@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Repositories;
-use App\Models\Admin;
+
+use App\Models\AdminModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +10,7 @@ class AdminRepository
 {
     private string $tableName = "admins";
 
-    public function Insert(Admin $admin)
+    public function Insert(AdminModel $admin)
     {
         DB::insert(
             "insert into $this->tableName (id, userId)",
@@ -16,7 +18,7 @@ class AdminRepository
         );
     }
 
-    public function Update(Admin $admin)
+    public function Update(AdminModel $admin)
     {
         DB::table($this->tableName)
             ->where('id', $admin->getId())
@@ -37,8 +39,8 @@ class AdminRepository
 
     public function SelectOneByIdWithRelationship(string $id, array $relationships)
     {
-     //   return Admin::with($relationships)->find($id);
-      //  return Admin::with($relationships)->where('id', $id)->first();
+        //   return Admin::with($relationships)->find($id);
+        //  return Admin::with($relationships)->where('id', $id)->first();
     }
 
     public function SelectManyWithRelationship(string $id, array $test)
@@ -46,4 +48,8 @@ class AdminRepository
         // TODO: Implement SelectManyWithRelationship() method.
     }
 
+    public function findByEmail($email)
+    {
+        return DB::table($this->tableName)->where('email', $email)->first();
+    }
 }

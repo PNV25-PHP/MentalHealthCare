@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dtos\Àdmin;
+namespace App\Dtos\Admin;
 
 use Illuminate\Http\Request;
 
