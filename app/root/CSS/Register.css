@@ -74,17 +74,6 @@ p,
 h3 {
     text-align: center;
 }
-
-.title {
-    color: var(--Dark-Blue, #1F2B6C);
-    /* Poppin regular 50 */
-    font-family: Poppins;
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
 #front-text {
     color: #000;
     font-family: Beau Rivage;
